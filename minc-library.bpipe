@@ -1,26 +1,26 @@
-BEASTMODEL_DIR="/opt/quarantine/resources/mni_icbm152_nlin_sym_09c_minc2"
+BEASTMODEL_DIR="/external/mni_icbm152/mni_icbm152_nlin_sym_09c_minc2"
 BEASTMODEL_NAME="mni_icbm152_t1_tal_nlin_sym_09c"
-BEASTLIBRARY_DIR="/opt/quarantine/resources/BEaST_libraries/combined"
+BEASTLIBRARY_DIR="/external/BEaST/beast-library-1.0"
 
 //Model which has a headmask, must correspond to the same space as MNIMODEL
-CUTNECKMODEL="/opt/quarantine/resources/mni_icbm152_nlin_sym_09c_minc2/mni_icbm152_t1_tal_nlin_sym_09c"
+CUTNECKMODEL="/external/mni_icbm152/mni_icbm152_nlin_sym_09c_minc2/mni_icbm152_t1_tal_nlin_sym_09c"
 
 //Model which has a facemask, must correspond to the same space as MNIMODEL
-DEFACEMODEL="/opt/quarantine/resources/mni_icbm152_nlin_sym_09c_minc2/mni_icbm152_t1_tal_nlin_sym_09c"
+DEFACEMODEL="/external/mni_icbm152/mni_icbm152_nlin_sym_09c_minc2/mni_icbm152_t1_tal_nlin_sym_09c"
 
 //Specify target linear registration model here options are
 //sym or asym
 //t1, t2, or pd
 //Models older than icbm_2009c are also available, see resources directory
 //Choice of model affects MNI_register, cutneck, and deface
-REGISTRATIONMODEL="/opt/quarantine/resources/mni_icbm152_nlin_sym_09c_minc2/mni_icbm152_t1_tal_nlin_sym_09c.mnc"
-//REGISTRATIONMODEL="/opt/quarantine/resources/mni_icbm152_nlin_asym_09c_minc2/mni_icbm152_t1_tal_nlin_asym_09c.mnc"
-//REGISTRATIONMODEL="/opt/quarantine/resources/mni_icbm152_nlin_sym_09c_minc2/mni_icbm152_t2_tal_nlin_sym_09c.mnc"
-//REGISTRATIONMODEL="/opt/quarantine/resources/mni_icbm152_nlin_asym_09c_minc2/mni_icbm152_t2_tal_nlin_asym_09c.mnc"
+REGISTRATIONMODEL="/external/mni_icbm152/mni_icbm152_nlin_sym_09c_minc2/mni_icbm152_t1_tal_nlin_sym_09c.mnc"
+//REGISTRATIONMODEL="/external/mni_icbm152/mni_icbm152_nlin_asym_09c_minc2/mni_icbm152_t1_tal_nlin_asym_09c.mnc"
+//REGISTRATIONMODEL="/external/mni_icbm152/mni_icbm152_nlin_sym_09c_minc2/mni_icbm152_t2_tal_nlin_sym_09c.mnc"
+//REGISTRATIONMODEL="/external/mni_icbm152/mni_icbm152_nlin_asym_09c_minc2/mni_icbm152_t2_tal_nlin_asym_09c.mnc"
 
 //Mask for masked registration
-REGISTRATIONBRAINMASK="/opt/quarantine/resources/mni_icbm152_nlin_sym_09c_minc2/mni_icbm152_t1_tal_nlin_sym_09c_mask.mnc"
-REGISTRATIONHEADMASK="/opt/quarantine/resources/mni_icbm152_nlin_sym_09c_minc2/mni_icbm152_t1_tal_nlin_sym_09c_headmask.mnc"
+REGISTRATIONBRAINMASK="/external/mni_icbm152/mni_icbm152_nlin_sym_09c_minc2/mni_icbm152_t1_tal_nlin_sym_09c_mask.mnc"
+REGISTRATIONHEADMASK="/external/mni_icbm152/mni_icbm152_nlin_sym_09c_minc2/mni_icbm152_t1_tal_nlin_sym_09c_headmask.mnc"
 
 //Model to normalize intensity against
 //NORMALIZEMODEL="/path/to/model.mnc"
@@ -368,6 +368,8 @@ resample = {
 preprocess = segment {
 	//Default best-practices preprocessing pipeline to run on all data
 	//is denoise + n3 or n4 + normalize + beast or cutneck + resample
-	anlm_denoise + n4correct
+	//anlm_denoise + n4correct 
+  beast
+
 }
 
